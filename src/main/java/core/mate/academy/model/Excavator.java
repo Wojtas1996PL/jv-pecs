@@ -5,7 +5,13 @@ package core.mate.academy.model;
  * Do not remove no-args constructor
  */
 public class Excavator extends Machine {
+    private String arm;
+
     public Excavator() {
+    }
+
+    public Excavator(String arm) {
+        this.arm = arm;
     }
 
     @Override
