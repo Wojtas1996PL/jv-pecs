@@ -8,9 +8,19 @@ public class Truck extends Machine {
     private String wheel;
 
     public Truck() {
+        super();
     }
 
     public Truck(String wheel) {
+        super();
+        this.wheel = wheel;
+    }
+
+    public String getWheel() {
+        return wheel;
+    }
+
+    public void setWheel(String wheel) {
         this.wheel = wheel;
     }
 

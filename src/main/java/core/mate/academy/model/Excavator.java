@@ -8,9 +8,19 @@ public class Excavator extends Machine {
     private String arm;
 
     public Excavator() {
+        super();
     }
 
     public Excavator(String arm) {
+        super();
+        this.arm = arm;
+    }
+
+    public String getArm() {
+        return arm;
+    }
+
+    public void setArm(String arm) {
         this.arm = arm;
     }
 

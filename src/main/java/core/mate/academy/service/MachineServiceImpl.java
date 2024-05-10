@@ -1,9 +1,6 @@
 package core.mate.academy.service;
 
-import core.mate.academy.model.Bulldozer;
-import core.mate.academy.model.Excavator;
 import core.mate.academy.model.Machine;
-import core.mate.academy.model.Truck;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +9,26 @@ import java.util.List;
  */
 public class MachineServiceImpl implements MachineService<Machine> {
 
+    private static final String bulldozerClassName = "core.mate.academy.model.Bulldozer";
+    private static final String ExcavatorClassName = "core.mate.academy.model.Excavator";
+    private static final String TruckClassName = "core.mate.academy.model.Truck";
+
     @Override
     public List<? extends Machine> getAll(Class type) {
-        if (type == Bulldozer.class) {
-            BulldozerProducer bulldozerProducer = new BulldozerProducer();
-            return bulldozerProducer.get();
-        } else if (type == Excavator.class) {
-            ExcavatorProducer excavatorProducer = new ExcavatorProducer();
-            return excavatorProducer.get();
-        } else if (type == Truck.class) {
-            TruckProducer truckProducer = new TruckProducer();
-            return truckProducer.get();
+        String typeName = type.getName();
+        switch (typeName) {
+            case(bulldozerClassName):
+                BulldozerProducerImpl bulldozerProducer = new BulldozerProducerImpl();
+                return bulldozerProducer.get();
+            case(ExcavatorClassName):
+                ExcavatorProducerImpl excavatorProducer = new ExcavatorProducerImpl();
+                return excavatorProducer.get();
+            case(TruckClassName):
+                TruckProducerImpl truckProducer = new TruckProducerImpl();
+                return truckProducer.get();
+            default:
+                return new ArrayList<>();
         }
-        return new ArrayList<>();
     }
 
     @Override
@@ -35,9 +39,9 @@ public class MachineServiceImpl implements MachineService<Machine> {
     }
 
     @Override
-    public void fill(List list, Object value) {
-        for (int i = 0; i < list.size(); i++) {
-            list.set(i, value);
+    public void fill(List<Object> listOfMachines, Object value) {
+        for (int i = 0; i < listOfMachines.size(); i++) {
+            listOfMachines.set(i, value);
         }
     }
 }
