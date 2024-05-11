@@ -8,11 +8,11 @@ public class Truck extends Machine {
     private String wheel;
 
     public Truck() {
-        super();
+
     }
 
-    public Truck(String wheel) {
-        super();
+    public Truck(String name, String color, String wheel) {
+        super(name, color);
         this.wheel = wheel;
     }
 

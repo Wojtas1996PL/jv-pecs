@@ -8,11 +8,11 @@ public class Bulldozer extends Machine {
     private String blade;
 
     public Bulldozer() {
-        super();
+
     }
 
-    public Bulldozer(String blade) {
-        super();
+    public Bulldozer(String name, String color, String blade) {
+        super(name, color);
         this.blade = blade;
     }
 

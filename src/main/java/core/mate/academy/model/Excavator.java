@@ -8,11 +8,11 @@ public class Excavator extends Machine {
     private String arm;
 
     public Excavator() {
-        super();
+
     }
 
-    public Excavator(String arm) {
-        super();
+    public Excavator(String name, String color, String arm) {
+        super(name, color);
         this.arm = arm;
     }
 
